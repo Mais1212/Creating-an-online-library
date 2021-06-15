@@ -46,11 +46,11 @@
                 <div class="card mb-3" style="max-width: 540px;">
                     <div class="row no-gutters">
                         <div class="col-md-4">
-                        {%- if book_json["img_path"] -%}
+                        {% if book_json["img_path"] -%}
                             <img src="{{ book_json["img_path"]|urlencode }}" class="card-img" alt="{{ book_json["title"] }}" height="250">
-                        {%- else -%}
+                        {% else -%}
                             <img src="images/Noimg.gif" class="card-img" alt="{{ book_json["title"] }}" height="250">
-                        {%- endif -%}
+                        {% endif -%}
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
