@@ -24,9 +24,7 @@ def get_book_json(json_path):
 
 def split_into_columns(book_coulmn):
     num = len(book_coulmn) // 2
-    chunked_books_json = list(chunked(book_coulmn, num))
-    first_book_column = chunked_books_json[0]
-    second_book_coulmn = chunked_books_json[1]
+    first_book_column, second_book_coulmn = list(chunked(book_coulmn, num))
 
     return first_book_column, second_book_coulmn
 
