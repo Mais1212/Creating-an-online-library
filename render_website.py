@@ -32,7 +32,7 @@ def split_into_columns(book_coulmn):
     return first_book_column, second_book_coulmn
 
 
-def get_books_json():
+def get_books():
     json_file_list = os.listdir("library/json")
     books_json = [get_book_json(json_path) for json_path in json_file_list]
     return books_json
@@ -44,8 +44,8 @@ def rebuild():
     books_number_per_page = 20
     environment = Environment(loader=FileSystemLoader("templates"))
     template = environment.get_template("template.html")
-    books_json = get_books_json()
-    chunked_books_per_page = list(chunked(books_json, books_number_per_page))
+    books = get_books()
+    chunked_books_per_page = list(chunked(books, books_number_per_page))
     path = pathlib.Path("pages", "index")
 
     for current_page, book_coulmn in enumerate(chunked_books_per_page, 1):
