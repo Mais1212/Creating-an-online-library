@@ -16,11 +16,18 @@ def get_book_json(json_path):
     img_path, book_title, book_path = book_json["img_path"],\
         book_json["title"], book_json['book_path']
 
-    img_path = f"../{img_path}" if img_path else "../images/Noimg.gif"
+    if img_path is not None:
+        img_path = img_path.replace("\\", "/")
+        img_path = f"../{img_path}"
+    else:
+        img_path = "../images/Noimg.gif"
+
+    book_path = book_path.replace("\\", "/")
+    book_path = f"../{book_path}"
 
     book_json["title"] = book_title
     book_json["img_path"] = img_path
-    book_json["book_path"] = f"../{book_path}"
+    book_json["book_path"] = book_path
 
     return book_json
 
